@@ -13,7 +13,8 @@ Resolver helps to retrieve Pod's hostnames from the Kubernetes DNS.
 ## Consistent hashing
 
 Will help you to define a consistent routing from a given resource to a given
-destination.
+destination. The hashring package does not require to run in Kubernetes and
+can be imported and used in any environment.
 
 ## Headless service
 
