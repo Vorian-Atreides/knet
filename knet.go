@@ -30,19 +30,21 @@ type Resolver struct {
 	resolver netResolver
 }
 
-// LookupAddr perform a reverse lookup for the given headless service.
+// LookupHost looks up the given host using the local resolver.
+// It returns a slice of that host's addresses.
 //
 // If no namespace is provided, the function will use the default kubernetes
 // namespace.
-func LookupAddr(serviceName string, namespace string) ([]string, error) {
-	return DefaultResolver.LookupAddr(context.Background(), serviceName, namespace)
+func LookupHost(serviceName string, namespace string) ([]string, error) {
+	return DefaultResolver.LookupHost(context.Background(), serviceName, namespace)
 }
 
-// LookupAddr perform a reverse lookup for the given headless service.
-///
+// LookupHost looks up the given host using the local resolver.
+// It returns a slice of that host's addresses.
+//
 // If no namespace is provided, the function will use the default kubernetes
 // namespace.
-func (r *Resolver) LookupAddr(ctx context.Context, serviceName string, namespace string) ([]string, error) {
+func (r *Resolver) LookupHost(ctx context.Context, serviceName string, namespace string) ([]string, error) {
 	_, srvs, err := r.LookupSRV(ctx, serviceName, namespace)
 	if err != nil {
 		return nil, err
