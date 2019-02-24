@@ -16,9 +16,9 @@ Will help you to define a consistent routing from a given resource to a given
 destination. The hashring package does not require to run in Kubernetes and
 can be imported and used in any environment.
 
-The package does not take any assumption on your library decision,
-allowing you to bring your own Tree, which you will need to wrap to respect
-the required interface.
+The package does not force you to use any third party library
+allowing you to bring your own Tree datastructure,
+which only need to be wrapped to respect the interface.
 
 Example with `github.com/emirpasic/gods/trees/redblacktree`:
 ```
